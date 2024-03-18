@@ -14,6 +14,7 @@
     "build": "npm run build:actions && npm run build:background",
     "local:clean:build": "rm -rf ./dist && npm run build",
     "lint": "prettier --check . && eslint . --ext .ts,.tsx",
+    "release": "release-it --no-npm",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch"
@@ -53,6 +54,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",
+    "release-it": "^17.1.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
