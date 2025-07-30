@@ -1,4 +1,8 @@
-type GetChromeStorageParams = Parameters<chrome.storage.StorageArea['get']>[0];
+type GetChromeStorageParams =
+  | string
+  | null
+  | Partial<{ [p: string]: unknown }>
+  | (string | number)[];
 type GetChromeStorageReturn<T> = { [K in keyof T]: T[K] } | object | null | undefined;
 
 type SetChromeStorageParams<T> = { [K in keyof T]: T[K] };
