@@ -61,18 +61,16 @@ const documentBodyObserver = new MutationObserver(async (mutationRecord) => {
 
 documentBodyObserver.observe(document.body, { childList: true, subtree: true });
 
-// TODO: Can I make this work?
-// const onChange = async (
-//   changes:
-//     | chrome.storage.StorageChange
-//     | AccountFilterChromeStorageChange
-//     | AccountFilterStatusChromeStorageChange,
-// ) => {
-//   if (!('accountFilterStatus' in changes || 'accountFilters' in changes)) return;
-//   const isFilterEnabled = await accountFilterStatus.get();
-//
-//   if (!isFilterEnabled && 'accountFilters' in changes) return;
-//
-// };
-//
-// chrome.storage.onChanged.addListener(onChange);
+const onChange = async (
+  changes: chrome.storage.StorageChange,
+  // | AccountFilterChromeStorageChange
+  // | AccountFilterStatusChromeStorageChange,
+) => {
+  console.log(JSON.stringify(changes, null, 2));
+  // if (!('accountFilterStatus' in changes || 'accountFilters' in changes)) return;
+  // const isFilterEnabled = await accountFilterStatus.get();
+  //
+  // if (!isFilterEnabled && 'accountFilters' in changes) return;
+};
+
+chrome.storage.onChanged.addListener(onChange);
