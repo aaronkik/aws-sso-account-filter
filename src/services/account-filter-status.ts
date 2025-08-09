@@ -1,4 +1,4 @@
-import { ChromeStorageSync } from '~/repositories';
+import { ChromeStorageSync } from '../repositories';
 
 const accountFiltersStatusKey = 'accountFilterStatus';
 

@@ -1,6 +1,6 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
-import { Button } from '~/components';
-import { accountFilterStorage, type AccountFilter } from '~/services/account-filter-storage';
+import { Button } from '../../components';
+import { accountFilterStorage, type AccountFilter } from '../../services/account-filter-storage';
 import AccountFilterItemToggle from './account-filter-item-toggle';
 
 interface Props {

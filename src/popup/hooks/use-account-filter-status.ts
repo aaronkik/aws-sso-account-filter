@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { accountFilterStatus } from '~/services/account-filter-status';
+import { accountFilterStatus } from '../../services/account-filter-status';
 
 const useAccountFilterStatus = () => {
   const [status, setStatus] = useState<boolean | null>(null);

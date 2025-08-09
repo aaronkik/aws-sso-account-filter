@@ -1,5 +1,5 @@
-import { accountFilterStatus } from '~/services/account-filter-status';
-import { accountFilterStorage } from '~/services/account-filter-storage';
+import { accountFilterStatus } from '../services/account-filter-status';
+import { accountFilterStorage } from '../services/account-filter-storage';
 // import type {
 //   AccountFilterChromeStorageChange,
 //   AccountFilterStatusChromeStorageChange,

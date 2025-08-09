@@ -1,4 +1,4 @@
-import { ChromeStorageSync } from '~/repositories';
+import { ChromeStorageSync } from '../repositories';
 
 const ACCOUNT_FILTER_STORAGE_KEY = 'accountFilters';
 

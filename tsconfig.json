@@ -9,9 +9,6 @@
     "moduleResolution": "bundler",
     "rootDir": "./",
     "baseUrl": "./",
-    "paths": {
-      "~/*": ["./src/*"]
-    },
     "sourceMap": true,
     "removeComments": true,
     "noEmit": true,

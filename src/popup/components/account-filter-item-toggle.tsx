@@ -1,5 +1,5 @@
 import { Switch } from '@headlessui/react';
-import { accountFilterStorage, type AccountFilter } from '~/services/account-filter-storage';
+import { accountFilterStorage, type AccountFilter } from '../../services/account-filter-storage';
 
 type AccountFilterItemToggleProps = {
   accountFilterItem: AccountFilter;
