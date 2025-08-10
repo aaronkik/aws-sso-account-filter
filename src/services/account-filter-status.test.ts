@@ -1,5 +1,5 @@
 import { vi, describe, expect, test } from 'vitest';
-import { ChromeStorageSync } from '~/repositories';
+import { ChromeStorageSync } from '../repositories';
 import { accountFilterStatus } from './account-filter-status';
 
 const spyOnChromeStorageSyncGet = () => vi.spyOn(ChromeStorageSync.prototype, 'get');

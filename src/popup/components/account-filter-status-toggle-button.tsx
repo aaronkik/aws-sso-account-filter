@@ -1,5 +1,5 @@
-import { Button } from '~/components';
-import { useAccountFilterStatus } from '~/popup/hooks';
+import { Button } from '../../components';
+import { useAccountFilterStatus } from '../../popup/hooks';
 
 const AccountFilterStatusToggleButton = () => {
   const { isEnabled, disable, enable } = useAccountFilterStatus();

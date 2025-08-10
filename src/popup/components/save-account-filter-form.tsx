@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { Input, Button, FormErrorMessage } from '~/components';
-import { ACCOUNT_FILTER_REQUIRED_MESSAGE } from '~/constants/form';
-import { accountFilterStorage } from '~/services/account-filter-storage';
+import { Button, FormErrorMessage, Input } from '../../components';
+import { ACCOUNT_FILTER_REQUIRED_MESSAGE } from '../../constants/form';
+import { accountFilterStorage } from '../../services/account-filter-storage';
 
 type FormValues = {
   accountFilter: string;

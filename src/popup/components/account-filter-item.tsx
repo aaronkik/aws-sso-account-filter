@@ -1,6 +1,6 @@
 import { TrashIcon } from '@heroicons/react/24/outline';
-import { Button } from '~/components';
-import { accountFilterStorage, type AccountFilter } from '~/services/account-filter-storage';
+import { Button } from '../../components';
+import { accountFilterStorage, type AccountFilter } from '../../services/account-filter-storage';
 import AccountFilterItemToggle from './account-filter-item-toggle';
 
 interface Props {
@@ -26,7 +26,7 @@ const AccountFilterItem = (props: Props) => {
   return (
     <li className='flex flex-row items-center justify-start gap-4 p-4 transition-colors hover:bg-slate-600/80'>
       <AccountFilterItemToggle accountFilterItem={props.filterItem} />
-      <p className='flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-base'>
+      <p className='flex-1 overflow-hidden text-base text-ellipsis whitespace-nowrap'>
         {filterName}
       </p>
       <Button
