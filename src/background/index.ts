@@ -1,9 +1,9 @@
 import { accountFilterStatus } from '../services/account-filter-status';
 import { accountFilterStorage } from '../services/account-filter-storage';
-// import type {
-//   AccountFilterChromeStorageChange,
-//   AccountFilterStatusChromeStorageChange,
-// } from '~/types';
+import type {
+  AccountFilterChromeStorageChange,
+  AccountFilterStatusChromeStorageChange,
+} from '../types';
 
 const documentBodyObserver = new MutationObserver(async (mutationRecord) => {
   const accountFilterStatusIsEnabled = await accountFilterStatus.get();
@@ -62,15 +62,28 @@ const documentBodyObserver = new MutationObserver(async (mutationRecord) => {
 documentBodyObserver.observe(document.body, { childList: true, subtree: true });
 
 const onChange = async (
-  changes: chrome.storage.StorageChange,
-  // | AccountFilterChromeStorageChange
-  // | AccountFilterStatusChromeStorageChange,
+  changes:
+    | chrome.storage.StorageChange
+    | AccountFilterChromeStorageChange
+    | AccountFilterStatusChromeStorageChange,
 ) => {
-  console.log(JSON.stringify(changes, null, 2));
-  // if (!('accountFilterStatus' in changes || 'accountFilters' in changes)) return;
-  // const isFilterEnabled = await accountFilterStatus.get();
-  //
-  // if (!isFilterEnabled && 'accountFilters' in changes) return;
+  if (!('accountFilterStatus' in changes || 'accountFilters' in changes)) return;
+
+  const isFilterEnabled = await accountFilterStatus.get();
+
+  if (!isFilterEnabled && 'accountFilters' in changes) return;
+
+  const tabList = document.querySelector('ul[role="tablist"]');
+  if (!tabList) return;
+
+  const selectedButton = tabList.querySelector('button[aria-selected="true"]');
+  if (!selectedButton) return;
+
+  const buttonText = selectedButton.textContent;
+  if (!buttonText) return;
+  if (buttonText.toLowerCase() !== 'accounts') return;
+
+  window.location.reload();
 };
 
 chrome.storage.onChanged.addListener(onChange);
