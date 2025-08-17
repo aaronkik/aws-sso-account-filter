@@ -1,9 +1,5 @@
-type GetChromeStorageParams =
-  | string
-  | null
-  | Partial<{ [p: string]: unknown }>
-  | (string | number)[];
-type GetChromeStorageReturn<T> = { [K in keyof T]: T[K] } | object | null | undefined;
+type GetChromeStorageParams = string | null | string[];
+type GetChromeStorageReturn<T> = { [K in keyof T]: T[K] } | null | undefined;
 
 type SetChromeStorageParams<T> = { [K in keyof T]: T[K] };
 type SetChromeStorageReturn = ReturnType<chrome.storage.StorageArea['set']>;
@@ -12,28 +8,11 @@ export class ChromeStorageSync {
   #chromeStorageSync = chrome.storage.sync;
 
   async get<T>(key: GetChromeStorageParams): Promise<GetChromeStorageReturn<T>> {
-    return new Promise((resolve, reject) => {
-      this.#chromeStorageSync
-        .get(key)
-        .then((value) => {
-          resolve(value);
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    });
+    // @ts-expect-error - don't know why this isn't working yet
+    return await this.#chromeStorageSync.get(key);
   }
 
   async set<T>(items: SetChromeStorageParams<T>): Promise<SetChromeStorageReturn> {
-    return new Promise((resolve, reject) => {
-      this.#chromeStorageSync
-        .set(items)
-        .then(() => {
-          resolve();
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    });
+    return await this.#chromeStorageSync.set(items);
   }
 }
