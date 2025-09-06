@@ -22,7 +22,7 @@ const globalSettings: ComponentPropsWithoutRef<typeof GlobalSettingItem>[] = [
 
 const GlobalSettings = () => {
   return (
-    <div className='flex flex-col gap-4 rounded-sm bg-slate-700 p-4 shadow-inner'>
+    <div className='flex flex-col gap-2 rounded-sm bg-slate-700 px-4 py-2 shadow-inner [&>*:not(:last-child)]:border-b [&>*:not(:last-child)]:border-slate-50/20 [&>*:not(:last-child)]:pb-2'>
       {globalSettings.map((setting) => (
         <GlobalSettingItem
           key={setting.storageKey}
