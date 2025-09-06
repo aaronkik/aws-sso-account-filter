@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Button, FormErrorMessage, Input } from '../../components';
+import { Button, FormErrorMessage, Input } from './shared';
 import { ACCOUNT_FILTER_REQUIRED_MESSAGE } from '../../constants/form';
 import { accountFilterStorage } from '../../services/account-filter-storage';
 
@@ -71,9 +71,7 @@ const SaveAccountFilterForm = () => {
           Save
         </Button>
       </div>
-      {errors.accountFilter && (
-        <FormErrorMessage className='mt-2'>{errors.accountFilter.message}</FormErrorMessage>
-      )}
+      {errors.accountFilter && <FormErrorMessage className='mt-2'>{errors.accountFilter.message}</FormErrorMessage>}
     </form>
   );
 };

@@ -1,4 +1,4 @@
-import Switch from '../../../components/switch';
+import Switch from '../shared/switch';
 import { type GlobalSettingKey } from '../../../services/global-settings';
 import useGlobalSetting from './use-global-setting';
 
