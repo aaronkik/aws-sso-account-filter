@@ -1,9 +1,4 @@
-import {
-  AccountFilterList,
-  AccountFilterStatusToggleButton,
-  GlobalSettings,
-  SaveAccountFilterForm,
-} from './components';
+import { AccountFilterList, GlobalSettings, SaveAccountFilterForm } from './components';
 
 const Popup = () => {
   return (
@@ -16,7 +11,6 @@ const Popup = () => {
         <SaveAccountFilterForm />
       </div>
       <AccountFilterList />
-      <AccountFilterStatusToggleButton />
     </div>
   );
 };
