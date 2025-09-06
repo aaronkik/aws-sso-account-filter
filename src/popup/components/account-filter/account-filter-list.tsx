@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import type { AccountFilterChromeStorageChange } from '../../types';
-import { accountFilterStorage, type AccountFilter } from '../../services/account-filter-storage';
+import type { AccountFilterChromeStorageChange } from '../../../types';
+import { accountFilterStorage, type AccountFilter } from '../../../services/account-filter-storage';
 import AccountFilterItem from './account-filter-item';
 
 const AccountFilterList = () => {
@@ -48,20 +48,11 @@ const AccountFilterList = () => {
     <div className='flex flex-1 flex-col'>
       {accountFilters.length ? (
         <>
-          <p className='flex-none py-2 text-xs font-semibold tracking-wider'>
-            Filters ({accountFilters.length})
-          </p>
-          <div
-            className='flex flex-[1_1_0px] overflow-y-auto rounded-sm bg-slate-700 shadow-inner'
-            ref={divListRef}
-          >
+          <p className='flex-none py-2 text-xs font-semibold tracking-wider'>Filters ({accountFilters.length})</p>
+          <div className='flex flex-[1_1_0px] overflow-y-auto rounded-sm bg-slate-700 shadow-inner' ref={divListRef}>
             <ul className='w-full'>
               {accountFilters.map((filter) => (
-                <AccountFilterItem
-                  key={filter.id}
-                  filterItem={filter}
-                  filterList={accountFilters}
-                />
+                <AccountFilterItem key={filter.id} filterItem={filter} filterList={accountFilters} />
               ))}
             </ul>
           </div>
