@@ -6,7 +6,7 @@ interface SwitchProps extends _SwitchProps {
   onChange: (value: boolean) => void;
 }
 
-const Switch = (props: SwitchProps) => {
+export const Switch = (props: SwitchProps) => {
   return (
     <_Switch {...props} checked={props.checked} onChange={props.onChange} as={Fragment}>
       {({ checked }) => (
@@ -25,5 +25,3 @@ const Switch = (props: SwitchProps) => {
     </_Switch>
   );
 };
-
-export default Switch;

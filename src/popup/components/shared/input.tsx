@@ -1,10 +1,10 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const Input = forwardRef<HTMLInputElement, ComponentPropsWithRef<'input'>>(({ className, ...props }, ref) => (
+export const Input = forwardRef<HTMLInputElement, ComponentPropsWithRef<'input'>>(({ className, ...props }, ref) => (
   <input
     className={twMerge(
-      'w-full rounded-sm border border-transparent bg-slate-700 leading-6 placeholder:text-slate-500 focus:border-orange-400 focus:bg-transparent focus:ring-orange-400 focus:placeholder:text-slate-600',
+      'w-full rounded-sm border border-transparent bg-slate-800 leading-6 placeholder:text-slate-500 focus:border-orange-400 focus:bg-transparent focus:ring-orange-400 focus:placeholder:text-slate-400',
       className,
     )}
     ref={ref}
@@ -13,5 +13,3 @@ const Input = forwardRef<HTMLInputElement, ComponentPropsWithRef<'input'>>(({ cl
 ));
 
 Input.displayName = 'Input';
-
-export default Input;

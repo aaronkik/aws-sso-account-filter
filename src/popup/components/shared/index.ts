@@ -1,3 +1,4 @@
-export { default as Button } from './button';
-export { default as FormErrorMessage } from './form-error-message';
-export { default as Input } from './input';
+export { Button } from './button';
+export { FormErrorMessage } from './form-error-message';
+export { Input } from './input';
+export { Switch } from './switch';

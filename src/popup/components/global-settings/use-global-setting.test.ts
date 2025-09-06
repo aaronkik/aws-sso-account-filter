@@ -1,6 +1,6 @@
 import { act, renderHook, waitFor } from '@testing-library/react';
 import { afterEach, vi, describe, expect, test } from 'vitest';
-import useGlobalSetting from './use-global-setting';
+import { useGlobalSetting } from './use-global-setting';
 import { globalSettings } from '../../../services/global-settings';
 
 const getGlobalSettingValue = vi.spyOn(globalSettings, 'getValue');

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { type GlobalSettingKey, globalSettings } from '../../../services/global-settings';
 import type { GlobalSettingsChromeStorageChange } from '../../../types';
 
-const useGlobalSetting = (storageKey: GlobalSettingKey) => {
+export const useGlobalSetting = (storageKey: GlobalSettingKey) => {
   const [globalSettingValue, setGlobalSettingValue] = useState<boolean>(false);
 
   useEffect(() => {
@@ -57,5 +57,3 @@ const useGlobalSetting = (storageKey: GlobalSettingKey) => {
 
   return { persistedValue: globalSettingValue, persistValue };
 };
-
-export default useGlobalSetting;

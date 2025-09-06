@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import type { AccountFilterChromeStorageChange } from '../../../types';
 import { accountFilterStorage, type AccountFilter } from '../../../services/account-filter-storage';
-import AccountFilterItem from './account-filter-item';
+import { AccountFilterItem } from './account-filter-item';
 
-const AccountFilterList = () => {
+export const AccountFilterList = () => {
   const [accountFilters, setAccountFilters] = useState<Array<AccountFilter>>([]);
   const divListRef = useRef<HTMLDivElement>(null);
 
@@ -47,21 +47,20 @@ const AccountFilterList = () => {
   return (
     <div className='flex flex-1 flex-col'>
       {accountFilters.length ? (
-        <>
-          <p className='flex-none py-2 text-xs font-semibold tracking-wider'>Filters ({accountFilters.length})</p>
-          <div className='flex flex-[1_1_0px] overflow-y-auto rounded-sm bg-slate-700 shadow-inner' ref={divListRef}>
-            <ul className='w-full'>
-              {accountFilters.map((filter) => (
-                <AccountFilterItem key={filter.id} filterItem={filter} filterList={accountFilters} />
-              ))}
-            </ul>
-          </div>
-        </>
+        <div className='flex flex-[1_1_0px] overflow-y-auto' ref={divListRef}>
+          <ul className='w-full [&>*:not(:last-child)]:border-b [&>*:not(:last-child)]:border-slate-50/20 [&>*:not(:last-child)]:pb-4'>
+            {accountFilters.map((filter) => (
+              <AccountFilterItem key={filter.id} filterItem={filter} filterList={accountFilters} />
+            ))}
+          </ul>
+        </div>
       ) : (
-        <p className='mt-4 text-center text-lg font-medium text-slate-400'>You have no filters</p>
+        <p className='mt-4 text-center text-lg font-medium text-slate-400'>
+          Create a regex to filter your AWS accounts
+          <br />
+          (filters are case insensitive)
+        </p>
       )}
     </div>
   );
 };
-
-export default AccountFilterList;

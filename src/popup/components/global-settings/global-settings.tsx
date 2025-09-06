@@ -1,5 +1,5 @@
 import { type ComponentPropsWithoutRef } from 'react';
-import GlobalSettingItem from './global-setting-item';
+import { GlobalSettingItem } from './global-setting-item';
 
 const globalSettings: ComponentPropsWithoutRef<typeof GlobalSettingItem>[] = [
   {
@@ -20,7 +20,7 @@ const globalSettings: ComponentPropsWithoutRef<typeof GlobalSettingItem>[] = [
   },
 ];
 
-const GlobalSettings = () => {
+export const GlobalSettings = () => {
   return (
     <div className='flex flex-col gap-2 rounded-sm bg-slate-700 px-4 py-2 shadow-inner [&>*:not(:last-child)]:border-b [&>*:not(:last-child)]:border-slate-50/20 [&>*:not(:last-child)]:pb-2'>
       {globalSettings.map((setting) => (
@@ -34,5 +34,3 @@ const GlobalSettings = () => {
     </div>
   );
 };
-
-export default GlobalSettings;

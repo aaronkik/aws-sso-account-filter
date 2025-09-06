@@ -8,7 +8,7 @@ interface Props {
   filterList: Array<AccountFilter>;
 }
 
-const AccountFilterItem = (props: Props) => {
+export const AccountFilterItem = (props: Props) => {
   const {
     filterItem: { id: filterId, filter: filterName },
     filterList,
@@ -24,7 +24,7 @@ const AccountFilterItem = (props: Props) => {
   };
 
   return (
-    <li className='flex flex-row items-center justify-start gap-4 p-4 transition-colors hover:bg-slate-600/80'>
+    <li className='flex flex-row items-center justify-start gap-4 py-4'>
       <AccountFilterItemToggle accountFilterItem={props.filterItem} />
       <p className='flex-1 overflow-hidden text-base text-ellipsis whitespace-nowrap'>{filterName}</p>
       <Button
@@ -37,5 +37,3 @@ const AccountFilterItem = (props: Props) => {
     </li>
   );
 };
-
-export default AccountFilterItem;
