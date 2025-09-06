@@ -55,8 +55,10 @@ export class ChromeStorageArea {
 
   remove(keys: string | string[]) {
     if (typeof keys === 'string') {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete this.#storage[keys];
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       keys.forEach((key) => delete this.#storage[key]);
     }
     return Promise.resolve();
