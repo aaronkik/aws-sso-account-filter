@@ -8,10 +8,6 @@ interface GetGlobalSettings {
 export type GlobalSettingKey = keyof GetGlobalSettings;
 
 class GlobalSettings extends ChromeStorageSync {
-  constructor() {
-    super();
-  }
-
   async getValue(key: GlobalSettingKey): Promise<boolean> {
     const result = await super.get<GetGlobalSettings>(key);
 
