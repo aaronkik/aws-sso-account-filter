@@ -1,9 +1,9 @@
-import { accountFilterStatus } from '../services/account-filter-status';
 import { accountFilterStorage } from '../services/account-filter-storage';
-import type { AccountFilterChromeStorageChange, AccountFilterStatusChromeStorageChange } from '../types';
+import type { AccountFilterChromeStorageChange, GlobalSettingsChromeStorageChange } from '../types';
+import { globalSettings } from '../services/global-settings';
 
 const documentBodyObserver = new MutationObserver(async (mutationRecord) => {
-  const accountFilterStatusIsEnabled = await accountFilterStatus.get();
+  const accountFilterStatusIsEnabled = await globalSettings.getValue('accountFilterStatus');
   if (!accountFilterStatusIsEnabled) return;
 
   for (const { addedNodes } of mutationRecord) {
@@ -59,11 +59,11 @@ const documentBodyObserver = new MutationObserver(async (mutationRecord) => {
 documentBodyObserver.observe(document.body, { childList: true, subtree: true });
 
 const onChange = async (
-  changes: chrome.storage.StorageChange | AccountFilterChromeStorageChange | AccountFilterStatusChromeStorageChange,
+  changes: chrome.storage.StorageChange | AccountFilterChromeStorageChange | GlobalSettingsChromeStorageChange,
 ) => {
   if (!('accountFilterStatus' in changes || 'accountFilters' in changes)) return;
 
-  const isFilterEnabled = await accountFilterStatus.get();
+  const isFilterEnabled = await globalSettings.getValue('accountFilterStatus');
 
   if (!isFilterEnabled && 'accountFilters' in changes) return;
 
@@ -77,7 +77,10 @@ const onChange = async (
   if (!buttonText) return;
   if (buttonText.toLowerCase() !== 'accounts') return;
 
-  window.location.reload();
+  const autoRefreshPage = await globalSettings.getValue('autoRefreshPage');
+  if (autoRefreshPage) {
+    window.location.reload();
+  }
 };
 
 chrome.storage.onChanged.addListener(onChange);
