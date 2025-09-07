@@ -1,13 +1,15 @@
 import { useForm } from 'react-hook-form';
-import { Button, FormErrorMessage, Input } from '../../components';
-import { ACCOUNT_FILTER_REQUIRED_MESSAGE } from '../../constants/form';
-import { accountFilterStorage } from '../../services/account-filter-storage';
+import { Button } from '../shared/button';
+import { FormErrorMessage } from '../shared/form-error-message';
+import { Input } from '../shared/input';
+import { ACCOUNT_FILTER_REQUIRED_MESSAGE } from '../../../constants/form';
+import { accountFilterStorage } from '../../../services/account-filter-storage';
 
 type FormValues = {
   accountFilter: string;
 };
 
-const SaveAccountFilterForm = () => {
+export const SaveAccountFilterForm = () => {
   const {
     formState: { errors },
     handleSubmit,
@@ -35,7 +37,7 @@ const SaveAccountFilterForm = () => {
       id='save-account-filter-form'
       onSubmit={saveAccountFilter}
     >
-      <div className='flex gap-4'>
+      <div className='flex gap-2'>
         <div className='relative w-full'>
           <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
             <span className='text-lg font-medium text-slate-500'>/</span>
@@ -67,15 +69,11 @@ const SaveAccountFilterForm = () => {
             <span className='text-lg font-medium text-slate-500'>/</span>
           </div>
         </div>
-        <Button aria-label='Save account filter' className='min-w-[6rem]' type='submit'>
-          Save
+        <Button aria-label='Save account filter' className='min-w-20' type='submit'>
+          Add
         </Button>
       </div>
-      {errors.accountFilter && (
-        <FormErrorMessage className='mt-2'>{errors.accountFilter.message}</FormErrorMessage>
-      )}
+      {errors.accountFilter && <FormErrorMessage className='mt-2'>{errors.accountFilter.message}</FormErrorMessage>}
     </form>
   );
 };
-
-export default SaveAccountFilterForm;

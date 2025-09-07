@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
-import Input from './input';
+import { Input } from './input';
 
 describe('Input', () => {
   test('matches snapshot', () => {

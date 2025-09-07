@@ -1,3 +1,13 @@
 import { ChromeStorageArea } from './chrome-storage';
 
-export const chrome = { storage: { sync: new ChromeStorageArea() } };
+const storageOnChanged = {
+  addListener: () => {},
+  removeListener: () => {},
+};
+
+export const chrome = {
+  storage: {
+    sync: new ChromeStorageArea(),
+    onChanged: storageOnChanged,
+  },
+};

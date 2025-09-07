@@ -9,7 +9,6 @@ on:
       - main
     paths-ignore:
       - '**.md'
-      - '.vscode/**'
       - 'LICENSE'
 
 jobs:
@@ -35,9 +34,6 @@ jobs:
 
       - name: Test
         run: npm run test:coverage
-
-      - name: Upload coverage
-        uses: coverallsapp/github-action@v2
 
       - name: Create release tag
         id: tag
@@ -91,7 +87,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit ammended files with release tag
+      - name: Commit amended files with release tag
         run: |
           git status
           git commit --all --message "🤖 Release v${{ steps.tag.outputs.release_tag }}"

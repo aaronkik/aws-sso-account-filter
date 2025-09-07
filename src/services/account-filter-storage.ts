@@ -35,9 +35,7 @@ class AccountFilterStorage {
   };
 
   async get(): Promise<GetAccountFilterStorage> {
-    const accountFilterStorageResult = await this.#storage.get<GetAccountFilterStorage>(
-      this.#storageKey,
-    );
+    const accountFilterStorageResult = await this.#storage.get<GetAccountFilterStorage>(this.#storageKey);
 
     if (
       accountFilterStorageResult &&
@@ -68,9 +66,7 @@ class AccountFilterStorage {
       return this.set([newAccountFilter]);
     }
 
-    const filteredDuplicateAccountFilters = accountFilters.filter(
-      ({ filter }) => filter !== newAccountFilter.filter,
-    );
+    const filteredDuplicateAccountFilters = accountFilters.filter(({ filter }) => filter !== newAccountFilter.filter);
 
     return this.set([newAccountFilter, ...filteredDuplicateAccountFilters]);
   }

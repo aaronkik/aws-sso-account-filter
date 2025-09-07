@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ComponentPropsWithoutRef } from 'react';
 import { describe, expect, test, vi } from 'vitest';
-import { accountFilterStorage } from '../../services/account-filter-storage';
+import { accountFilterStorage } from '../../../services/account-filter-storage';
 import AccountFilterItemToggle from './account-filter-item-toggle';
 
 type AccountFilterItemToggleProps = ComponentPropsWithoutRef<typeof AccountFilterItemToggle>;

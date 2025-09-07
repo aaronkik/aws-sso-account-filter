@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
-import FormErrorMessage from './form-error-message';
+import { FormErrorMessage } from './form-error-message';
 
 describe('FormErrorMessage', () => {
   test('matches snapshot', () => {

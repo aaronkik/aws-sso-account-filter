@@ -4,7 +4,13 @@ import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 import Popup from './Popup';
 
-const root = createRoot(document.getElementById('root')!);
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
