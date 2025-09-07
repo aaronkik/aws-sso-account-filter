@@ -13,11 +13,12 @@
     "prebuild": "tsc --noEmit",
     "build": "npm run build:actions && npm run build:background",
     "local:clean:build": "rm -rf ./dist && npm run build",
-    "lint": "prettier --check . && eslint . ",
+    "lint": "prettier --check . && eslint .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
-    "knip": "knip"
+    "knip": "knip",
+    "knip:prod": "knip --production"
   },
   "dependencies": {
     "@fontsource/inter": "5.2.6",
