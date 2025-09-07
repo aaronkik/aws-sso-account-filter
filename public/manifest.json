@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AWS Account Filter",
   "description": "A browser extension that reduces the list of AWS accounts via custom regex filters",
-  "version": "2025.9.7.209",
+  "version": "2025.9.7.2012",
   "action": {
     "default_popup": "src/popup/index.html"
   },
