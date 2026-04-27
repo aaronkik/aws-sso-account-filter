@@ -10,14 +10,14 @@ const globalSettings: ComponentPropsWithoutRef<typeof GlobalSettingItem>[] = [
       disabled: 'Currently disabled',
     },
   },
-  {
-    title: 'Auto-Refresh Page',
-    storageKey: 'autoRefreshPage',
-    description: {
-      enabled: 'Refresh when filters change',
-      disabled: 'Manual refresh only',
-    },
-  },
+  // {
+  //   title: 'Auto-Refresh Page',
+  //   storageKey: 'autoRefreshPage',
+  //   description: {
+  //     enabled: 'Refresh when filters change',
+  //     disabled: 'Manual refresh only',
+  //   },
+  // },
 ];
 
 export const GlobalSettings = () => {
