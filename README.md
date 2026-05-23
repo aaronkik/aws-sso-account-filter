@@ -4,6 +4,10 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/aaronkik/aws-sso-account-filter/main.yml?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aaronkik/aws-sso-account-filter?style=flat-square)
 
+> **⚠️ This repository has been archived and is no longer maintained.**
+>
+> In mid-April 2026, AWS migrated the SSO account list UI to the [Cloudscape Design System](https://cloudscape.design/components/table/), replacing the previous DOM structure with a fully managed table component. This component manages its own state in memory, which caused the extension to crash the page when attempting to manipulate the account list. Attempts to rework the extension to be compatible with the new UI were unsuccessful.
+
 AWS Account Filter is a browser extension that reduces the list of AWS SSO accounts you can see via custom regex filters.
 
 Enter valid JS flavoured regex in the input field to view the accounts you're interested in. Your regex can be as simple as `dev` or something more complex.
