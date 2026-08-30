@@ -66,9 +66,9 @@
     "**/*": "prettier --write --ignore-unknown",
     "*.{ts,tsx}": "eslint"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.33.4",
   "volta": {
     "node": "22.19.0",
-    "pnpm": "10.15.1"
+    "pnpm": "10.33.4"
   }
 }
